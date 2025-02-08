@@ -7,7 +7,7 @@
         "description": "MoviePilotToken",
         "type": "string"
     },
-    "username": {
+    "mp_username": {
         "description": "MoviePilot用户名",
         "type": "string"
     },
