@@ -1,4 +1,8 @@
 {
+    "mp_url": {
+        "description": "MoviePilotUrl",
+        "type": "string"
+    },
     "mp_token": {
         "description": "MoviePilotToken",
         "type": "string"
@@ -11,4 +15,4 @@
         "description": "MoviePilot密码",
         "type": "string"
     }
-    }
+}
