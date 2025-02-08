@@ -1,6 +1,6 @@
 # MoviePilot订阅
 
-> 本项目是基于AstrBot开发的插件，部署请参考以下项目
+> 本项目是基于AstrBot开发的插件，部署请参考此项目
 > https://github.com/Soulter/AstrBot
 
 ## 配置
