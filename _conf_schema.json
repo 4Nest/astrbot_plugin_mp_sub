@@ -1,6 +1,6 @@
 {
     "mp_token": {
-        "description": "MoviePilotTok",
+        "description": "MoviePilotToken",
         "type": "string",
         "hint": "MoviePilot配置",
         "obvious_hint": true
