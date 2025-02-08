@@ -1,10 +1,12 @@
-# helloworld
+# MoviePilot订阅
+## 配置
+**插件配置项**
+- mp_url：公网能够访问的mp地址
+- mp_token：mp中的token
+- mp_username：mp的用户名
+- mp_password：mp的密码
 
-AstrBot 插件模板
-
-A template plugin for AstrBot plugin feature
-
-# 支持
-
-[帮助文档](https://astrbot.soulter.top/center/docs/%E5%BC%80%E5%8F%91/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/
-)
+## 指令
+- /sub 片名          订阅影片
+- /select 序号       选择影片  
+- /season 序号       选择季度（电影不需要选）
