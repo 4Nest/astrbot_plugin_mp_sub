@@ -1,0 +1,16 @@
+{
+    "mp_token": {
+        "description": "MoviePilotTok",
+        "type": "string",
+        "hint": "MoviePilot配置",
+        "obvious_hint": true
+    },
+    "username": {
+        "description": "MoviePilot用户名",
+        "type": "string"
+    },
+    "mp_password": {
+        "description": "MoviePilot密码",
+        "type": "string"
+    }
+    }
