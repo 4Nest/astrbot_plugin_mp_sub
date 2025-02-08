@@ -5,8 +5,6 @@
 
 ## 配置
 
-**插件配置项**
-
 - mp_url：公网能够访问的mp地址
 - mp_token：mp中的token
 - mp_username：mp的用户名
