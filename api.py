@@ -7,7 +7,6 @@ import httpx
 
 class MoviepilotApi:
     def __init__(self, config: dict):
-        super().__init__()
         self.base_url = config.get('mp_url')
         self.mp_username = config.get('mp_username')
         self.mp_password = config.get('mp_password')
@@ -112,9 +111,8 @@ class MoviepilotApi:
             logger.error(f"Error subscribing to series: {e}")
             return False
 
-    @classmethod
     async def _request(
-            cls,
+            self,
             url,
             method="GET",
             headers=None,
@@ -146,6 +144,39 @@ class MoviepilotApi:
                 logger.error(f"{r.status_code} 请求错误\n{r}")
             else:
                 return r.json()
+
+    async def get_download_progress(self) -> List[dict] | None:
+        """获取下载进度
+        Returns:
+            List[dict] | None: 返回下载任务列表，每个任务包含以下字段：
+            - media: dict 媒体信息
+                - title: str 中文标题
+                - type: str 类型（电影/电视剧）
+            - progress: float 下载进度（百分比）
+            - state: str 下载状态
+        """
+        _api_path = "/api/v1/download/"
+        try:
+            headers = await self._get_headers()
+            if not headers:
+                logger.error("获取认证头失败")
+                return None
+                
+            data = await self._request(
+                url=self.base_url + _api_path,
+                method="GET",
+                headers=headers
+            )
+            
+            if not data:
+                logger.info("当前没有正在下载的任务")
+                return []
+                
+            return data
+            
+        except Exception as e:
+            logger.error(f"获取下载进度失败: {e}")
+            return None
 
 
 

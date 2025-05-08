@@ -88,3 +88,29 @@ class MyPlugin(Star):
                 yield event.plain_result("请输入一个数字。")
         else:
             yield event.plain_result("请先使用 /sub 和 /select 命令选择电视剧和季数。")
+
+    @filter.command("download")
+    async def progress(self, event: AstrMessageEvent):
+        progress_data = await self.api.get_download_progress()
+        if progress_data is not None:  # 如果成功获取到数据
+            if len(progress_data) == 0:  # 如果没有正在下载的任务
+                yield event.plain_result("当前没有正在下载的任务。")
+                return
+            
+            # 格式化下载进度信息
+            progress_list = []
+            for task in progress_data:
+                media = task.get('media', {})
+                title = media.get('title', task.get('title', '未知'))
+                season = media.get('season', '')
+                episode = media.get('episode', '')
+                progress = round(task.get('progress', 0), 2)  # 保留两位小数
+                
+                # 按照要求格式化：title season episode：progress
+                formatted_info = f"{title} {season} {episode}：{progress}%"
+                progress_list.append(formatted_info)
+                
+            result = "\n".join(progress_list)
+            yield event.plain_result(result)
+        else:
+            yield event.plain_result("获取下载进度失败，请稍后重试。")
