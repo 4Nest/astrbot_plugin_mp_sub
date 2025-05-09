@@ -13,6 +13,7 @@ class MyPlugin(Star):
         print(self.config)
 
     @filter.command("sub")
+    '''订阅影片'''
     async def sub(self, event: AstrMessageEvent, message: str):
         movies = await self.api.search_media_info(message)  # 使用 self.api 访问实例属性
         if movies:
@@ -26,6 +27,7 @@ class MyPlugin(Star):
             yield event.plain_result("没有查询到影片，请检查名字。")
 
     @filter.command("select")
+    '''选择影片'''
     async def select(self, event: AstrMessageEvent, message: str):
         user_id = event.get_sender_id()  # 获取用户ID
         user_state = self.state.get(user_id)
@@ -66,6 +68,7 @@ class MyPlugin(Star):
             yield event.plain_result("请先使用 /sub 命令搜索影片。")
 
     @filter.command("season")
+    '''选择季度'''
     async def season(self, event: AstrMessageEvent, message: str):
         user_id = event.get_sender_id()  # 获取用户ID
         user_state = self.state.get(user_id)
@@ -90,6 +93,7 @@ class MyPlugin(Star):
             yield event.plain_result("请先使用 /sub 和 /select 命令选择电视剧和季数。")
 
     @filter.command("download")
+    '''查看下载'''
     async def progress(self, event: AstrMessageEvent):
         progress_data = await self.api.get_download_progress()
         if progress_data is not None:  # 如果成功获取到数据
