@@ -9,7 +9,7 @@ from astrbot.core.utils.session_waiter import (
 )
 from .api import MoviepilotApi
 
-@register("MoviepilotSubscribe", "4Nest", "MoviepilotQQ机器人订阅 插件", "1.1.0", "https://github.com/4Nest/astrbot_plugin_mp_sub")
+@register("MoviepilotSubscribe", "4Nest", "MoviepilotQQ机器人订阅 插件", "1.1.1", "https://github.com/4Nest/astrbot_plugin_mp_sub")
 class MyPlugin(Star):
     def __init__(self, context: Context, config: dict):
         super().__init__(context)
