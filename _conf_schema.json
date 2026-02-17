@@ -1,0 +1,38 @@
+{
+    "mp_url": {
+        "description": "MoviePilot 访问地址（需公网可访问）",
+        "type": "string",
+        "default": "",
+        "hint": "例如：http://your-mp-domain:3000"
+    },
+    "mp_username": {
+        "description": "MoviePilot 用户名",
+        "type": "string",
+        "default": "",
+        "hint": "登录 MoviePilot 的用户名"
+    },
+    "mp_password": {
+        "description": "MoviePilot 密码",
+        "type": "string",
+        "default": "",
+        "hint": "登录 MoviePilot 的密码"
+    },
+    "mp_timeout": {
+        "description": "API 请求超时时间（秒）",
+        "type": "int",
+        "default": 120,
+        "hint": "建议 60-300 之间"
+    },
+    "mp_max_retries": {
+        "description": "请求失败时的最大重试次数",
+        "type": "int",
+        "default": 3,
+        "hint": "建议 1-5 之间"
+    },
+    "mp_retry_delay": {
+        "description": "重试间隔时间（秒）",
+        "type": "int",
+        "default": 1,
+        "hint": "每次重试的间隔秒数"
+    }
+}

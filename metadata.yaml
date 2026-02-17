@@ -1,0 +1,6 @@
+name: moviepilot_sub
+desc: MoviePilot 订阅插件
+help: "使用 /mp_help 查看详细帮助"
+version: v1.2.0
+author: 4Nest
+repo: https://github.com/4Nest/astrbot_plugin_mp_sub
