@@ -20,7 +20,7 @@
 
 | 配置项 | 说明 | 默认值 |
 |--------|------|--------|
-| `mp_url` | MoviePilot 访问地址（需公网可访问） | - |
+| `mp_url` | MoviePilot 访问地址 | - |
 | `mp_username` | MoviePilot 用户名 | - |
 | `mp_password` | MoviePilot 密码 | - |
 | `mp_timeout` | API 请求超时时间（秒） | 120 |

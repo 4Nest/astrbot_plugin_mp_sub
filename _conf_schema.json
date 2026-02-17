@@ -1,6 +1,6 @@
 {
     "mp_url": {
-        "description": "MoviePilot 访问地址（需公网可访问）",
+        "description": "MoviePilot 访问地址",
         "type": "string",
         "default": "",
         "hint": "例如：http://your-mp-domain:3000"
