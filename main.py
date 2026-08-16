@@ -7,6 +7,7 @@ MoviePilot 订阅插件
 
 from typing import Any
 import asyncio
+import re
 
 from astrbot.api.event import filter, AstrMessageEvent
 from astrbot.api.star import Context, Star, register
@@ -50,8 +51,18 @@ class MoviePilotPlugin(Star):
 
     @staticmethod
     def _md(event: AstrMessageEvent, text: str) -> MessageEventResult:
-        """构建 Markdown 消息结果（不支持 Markdown 的平台会自动回退为纯文本）"""
-        return event.plain_result(text).use_markdown(True)
+        """构建回复消息，按平台决定是否使用 Markdown
+
+        QQ 官方机器人（qq_official）原生渲染 Markdown；其他平台（如 aiocqhttp）
+        自动剥离 Markdown 语法后以纯文本发送。
+        """
+        if event.get_platform_name() == "qq_official":
+            return event.plain_result(text).use_markdown(True)
+        plain = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"\1（\2）", text)
+        plain = plain.replace("**", "").replace("`", "")
+        plain = re.sub(r"^#+\s*", "", plain, flags=re.MULTILINE)
+        plain = re.sub(r"^>\s*", "", plain, flags=re.MULTILINE)
+        return event.plain_result(plain).use_markdown(False)
 
     @staticmethod
     def _media_link(media: dict[str, Any]) -> str:
