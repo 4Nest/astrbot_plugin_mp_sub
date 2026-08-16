@@ -3,19 +3,13 @@
         "description": "MoviePilot 访问地址",
         "type": "string",
         "default": "",
-        "hint": "例如：http://your-mp-domain:3000"
+        "hint": "例如：http://192.168.1.100:3001"
     },
-    "mp_username": {
-        "description": "MoviePilot 用户名",
+    "mp_apikey": {
+        "description": "MoviePilot API Key",
         "type": "string",
         "default": "",
-        "hint": "登录 MoviePilot 的用户名"
-    },
-    "mp_password": {
-        "description": "MoviePilot 密码",
-        "type": "string",
-        "default": "",
-        "hint": "登录 MoviePilot 的密码"
+        "hint": "在 MoviePilot 设置 -> 安全 -> API Key 中获取"
     },
     "mp_timeout": {
         "description": "API 请求超时时间（秒）",

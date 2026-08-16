@@ -10,7 +10,7 @@
 - 📺 **季度选择** - 电视剧自动列出可选季度
 - 📥 **下载进度查看** - 可视化进度条展示下载状态
 - 🔄 **自动重试机制** - 网络波动时自动重试 API 请求
-- 🔐 **Token 缓存** - 智能缓存登录令牌，减少重复认证
+- 🔑 **API Key 认证** - 无需账号密码，直接使用 MoviePilot API Key
 - 🔒 **并发安全** - 支持多用户同时使用
 - ⚙️ **灵活配置** - 支持自定义超时和重试参数
 
@@ -21,8 +21,7 @@
 | 配置项 | 说明 | 默认值 |
 |--------|------|--------|
 | `mp_url` | MoviePilot 访问地址 | - |
-| `mp_username` | MoviePilot 用户名 | - |
-| `mp_password` | MoviePilot 密码 | - |
+| `mp_apikey` | MoviePilot API Key（设置 -> 安全 -> API Key） | - |
 | `mp_timeout` | API 请求超时时间（秒） | 120 |
 | `mp_max_retries` | 请求失败时的最大重试次数 | 3 |
 | `mp_retry_delay` | 重试间隔时间（秒） | 1 |
@@ -51,6 +50,12 @@
 - 下载速度（如有）
 
 ## 更新日志
+
+### v2.0.0
+- ♻️ 认证方式重构：改用 MoviePilot API Key（查询参数 `token`），不再使用账号密码登录
+- 🔥 移除 Token 缓存与登录逻辑，配置简化为 `mp_url` + `mp_apikey`
+- 🐛 修复搜索关键词未 URL 编码的问题
+- 🐛 修复 MoviePilot v2 响应包装（`{"success", "data"}`）未解包导致搜索/下载进度解析错误的问题
 
 ### v1.2.0
 - ✨ 新增 `/mp_help` 帮助命令

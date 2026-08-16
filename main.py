@@ -24,7 +24,7 @@ from .api import MoviepilotApi
     "moviepilot_sub",
     "4Nest",
     "MoviePilot 订阅管理插件",
-    "1.2.0",
+    "2.0.0",
     "https://github.com/4Nest/astrbot_plugin_mp_sub",
 )
 class MoviePilotPlugin(Star):
